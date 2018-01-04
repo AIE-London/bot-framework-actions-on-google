@@ -1,0 +1,16 @@
+{
+  "name": "bot-framework-actions-on-google",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:daniel-cotton/bot-framework-actions-on-google.git",
+  "author": "Dan Cotton <dan@daniel-cotton.co.uk>",
+  "license": "MIT",
+  "dependencies": {
+    "actions-on-google": "^1.7.0",
+    "body-parser": "^1.18.2",
+    "botframework-directlinejs": "^0.9.14",
+    "express": "^4.16.2",
+    "node-fetch": "^1.7.3",
+    "xhr2": "^0.1.4"
+  }
+}
