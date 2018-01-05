@@ -144,7 +144,7 @@ describe('DirectLineWrapper', () => {
     let wrapper = new DirectLineWrapper(mockClient, mockUser);    
     assert.equal(mockClient.conversationId, wrapper.conversationId);
   });
-  
+
   it('should be able to remove registered event listener', () => {
     // Setup mocks
     let subscriptionFunction;
@@ -184,6 +184,36 @@ describe('DirectLineWrapper', () => {
     // Assert
     assert(eventHandler.calledOnce);
     assert(eventHandler.calledWith(mockActivity));
+  });
+
+
+  it('should send a well constructed event when sendMessage is called', () => {
+    // Mocks
+    const user = {
+      displayName: "Dan Cotton"
+    };
+    const userId = "AA-B123-00A";
+    const message = "This is a test message";
+    const activityMock = {
+      from: {
+        id: userId,
+        name: user.displayName,
+        summary: user
+      },
+      type: "message",
+      text: message
+    };
+    const postActivityMockClient = Object.assign({}, mockClient, {
+      postActivity: () => ({
+        subscribe: () => {}
+      })
+    });
+    let spy = sinon.spy(postActivityMockClient, "postActivity");
+    // Construct Wrapper, perform send message
+    let wrapper = new DirectLineWrapper(postActivityMockClient, mockUser);
+    wrapper.sendMessage(user, message, userId);
+    assert(spy.calledOnce);
+    assert(spy.calledWith(activityMock));
   });
 
 });
