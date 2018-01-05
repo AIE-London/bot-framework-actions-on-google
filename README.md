@@ -3,6 +3,24 @@ This NPM Module adds a Microsoft Bot Framework integration to Actions on Google 
 
 ## Quickstart
 
+If you know how to create an Actions on Google project with the Actions SDK. Follow the usual process of creating and populating an actions.json file.
+
+This module then acts as a replacement for your fulfilment, simply use the module to construct an express router to be used as the fulfilment URL. You will need to provide a directline secret.
+
+```javascript
+const bodyParser = require("body-parser");
+const actionsOnGoogleAdapter = require("../");
+
+const PORT = process.env.PORT || 3000;
+const app = express();
+
+app.use(bodyParser.json());
+// Construct and use router.
+app.use(actionsOnGoogleAdapter(<DIRECT_LINE_SECRET>));
+```
+
+## Full Guide
+
 ### Setting up actions.json
 ```json
 {
@@ -56,7 +74,7 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 
 app.use(bodyParser.json());
-app.use(actionsOnGoogleAdapter(process.env.DIRECT_LINE_SECRET));
+app.use(actionsOnGoogleAdapter(<DIRECT_LINE_SECRET>));
 
 app.listen(PORT, () => console.log(`ActionsOnGoogle demo listening on port ${PORT}!`));
 ```
