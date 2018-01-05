@@ -25,7 +25,9 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
           
-      - run: yarn install && yarn test
+      - run: yarn install
+      - run: yarn test
+      - run: if [[ -e test-results.xml ]]; then cp test-results.xml $CIRCLE_TEST_REPORTS/test-results.xml; fi
 
   release:
     docker:

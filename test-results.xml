@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="0" tests="3" failures="0">
+  <testsuite name="Root Suite" timestamp="2018-01-05T15:17:36" tests="0" failures="0" time="0">
+  </testsuite>
+  <testsuite name="DirectLineClientStorage" timestamp="2018-01-05T15:17:36" tests="3" file="/Users/dcotton/Documents/open-source/my-open-source/bots/bot-framework-actions-on-google/test/directline/DirectLineClientStorageTest.js" failures="0" time="0">
+    <testcase name="DirectLineClientStorage should return 123 when the value 123 is stored against key &quot;test&quot;" time="0" classname="should return 123 when the value 123 is stored against key &quot;test&quot;">
+    </testcase>
+    <testcase name="DirectLineClientStorage should be able to store an object against a given key" time="0" classname="should be able to store an object against a given key">
+    </testcase>
+    <testcase name="DirectLineClientStorage should return undefined when no value is stored for key" time="0" classname="should return undefined when no value is stored for key">
+    </testcase>
+  </testsuite>
+</testsuites>
