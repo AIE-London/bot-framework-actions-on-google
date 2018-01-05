@@ -2,7 +2,11 @@
 // Import NPM modules
 //=========================================================
 const express = require("express");
+const fulfill = require("./lib/fulfilment");
 
-const router = express.Router();
+module.exports = (directlineSecret) => {
+  const router = express.Router();
+  router.use(fulfill(directlineSecret));
 
-module.exports = router;
+  return router;
+};

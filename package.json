@@ -12,5 +12,12 @@
     "express": "^4.16.2",
     "node-fetch": "^1.7.3",
     "xhr2": "^0.1.4"
+  },
+  "devDependencies": {
+    "dotenv": "^4.0.0",
+    "ngrok": "^2.2.24"
+  },
+  "scripts": {
+    "start": "pushd demo; node local; popd;"
   }
 }

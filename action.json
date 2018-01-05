@@ -1,0 +1,1 @@
+{"actions":[{"description":"Default Welcome Intent","name":"MAIN","fulfillment":{"conversationName":"MAIN_CONVERSATION"},"intent":{"name":"actions.intent.MAIN","trigger":{"queryPatterns":["talk to Bot Framework"]}}}],"conversations":{"MAIN_CONVERSATION":{"name":"MAIN_CONVERSATION"}}}
