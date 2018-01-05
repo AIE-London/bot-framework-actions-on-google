@@ -40,9 +40,14 @@ workflows:
   test_and_release:
     jobs:
       - test
+          filters:
+            tags:
+              only: /.*/
       - release:
+          requires:
+            - test
           filters:
             tags:
               only: /v[0-9]+(\.[0-9]+)*/
-          requires:
-            - test
+            branches:
+              ignore: /.*/
