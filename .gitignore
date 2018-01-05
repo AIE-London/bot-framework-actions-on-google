@@ -11,6 +11,9 @@ pids
 *.seed
 *.pid.lock
 
+# Test Results
+test-results.xml
+
 # env
 .env
 

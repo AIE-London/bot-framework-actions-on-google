@@ -25,8 +25,17 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
           
-      - run: yarn install && yarn test
-
+      - run: yarn install
+      - run: mkdir junit
+      - run: 
+          command: yarn test
+          environment:
+            MOCHA_FILE: junit/test-results.xml
+          when: always
+      - store_test_results:
+          path: ~/repo/junit
+      - store_artifacts:
+          path: ~/repo/junit
   release:
     docker:
       - image: circleci/node:latest
