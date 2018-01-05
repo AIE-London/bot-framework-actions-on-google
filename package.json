@@ -18,6 +18,7 @@
     "ngrok": "^2.2.24"
   },
   "scripts": {
-    "start": "pushd demo; node local; popd;"
+    "start": "pushd demo; node local; popd;",
+    "test": "echo \"TODO\""
   }
 }
