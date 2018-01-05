@@ -26,9 +26,16 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
           
       - run: yarn install
-      - run: yarn test
-      - run: if [[ -e test-results.xml ]]; then cp test-results.xml $CIRCLE_TEST_REPORTS/test-results.xml; fi
-
+      - run: mkdir ~/junit
+      - run: 
+          command: yarn test
+          environment:
+            MOCHA_FILE: ~/junit/test-results.xml
+          when: always
+      - store_test_results:
+          path: ~/junit
+      - store_artifacts:
+          path: ~/junit
   release:
     docker:
       - image: circleci/node:latest
