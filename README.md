@@ -1,4 +1,7 @@
 # bot-framework-actions-on-google
+
+[![CircleCI](https://circleci.com/gh/daniel-cotton/bot-framework-actions-on-google.svg?style=svg)](https://circleci.com/gh/daniel-cotton/bot-framework-actions-on-google)
+
 This NPM Module adds a Microsoft Bot Framework integration to Actions on Google - turning it into an input channel.
 
 ## Quickstart
