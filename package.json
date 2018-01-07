@@ -1,6 +1,6 @@
 {
   "name": "bot-framework-actions-on-google",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "index.js",
   "repository": "git@github.com:daniel-cotton/bot-framework-actions-on-google.git",
   "author": "Dan Cotton",
