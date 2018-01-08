@@ -12,13 +12,11 @@ If you know how to create an Actions on Google project with the Actions SDK. Fol
 This module then acts as a replacement for your fulfilment, simply use the module to construct an express router to be used as the fulfilment URL. You will need to provide a directline secret.
 
 ```javascript
-const bodyParser = require("body-parser");
-const actionsOnGoogleAdapter = require("../");
+const actionsOnGoogleAdapter = require("bot-framework-actions-on-google");
+const express = require("express");
 
-const PORT = process.env.PORT || 3000;
 const app = express();
 
-app.use(bodyParser.json());
 // Construct and use router.
 app.use(actionsOnGoogleAdapter(<DIRECT_LINE_SECRET>));
 ```
@@ -71,15 +69,13 @@ Then pass the resulting router to ExpressJS's `app.use()` middleware registratio
 // Import NPM modules
 //=========================================================
 const express = require("express");
-const bodyParser = require("body-parser");
-const actionsOnGoogleAdapter = require("../");
+const actionsOnGoogleAdapter = require("bot-framework-actions-on-google");
 
-const PORT = process.env.PORT || 3000;
 const app = express();
 
-app.use(bodyParser.json());
 app.use(actionsOnGoogleAdapter(<DIRECT_LINE_SECRET>));
 
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`ActionsOnGoogle demo listening on port ${PORT}!`));
 ```
 
