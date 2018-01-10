@@ -42,7 +42,7 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      - run: npm install -g npm-cli-login && npm-cli-login
+      - run: npm run login-cli
       - run: npm publish
       
 workflows:
