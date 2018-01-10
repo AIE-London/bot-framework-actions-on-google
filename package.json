@@ -1,6 +1,6 @@
 {
   "name": "bot-framework-actions-on-google",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "index.js",
   "repository": "git@github.com:Capgemini-AIE/bot-framework-actions-on-google.git",
   "author": "Dan Cotton",
