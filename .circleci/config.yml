@@ -42,7 +42,7 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+      - run: echo -e "$NPM_USER\n$NPM_PASS\n$NPM_EMAIL" | npm login
       - run: npm publish
       
 workflows:
