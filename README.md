@@ -88,6 +88,8 @@ Now that this is complete. Deploy the express server to the URL you configured i
 This bridge supports Microsoft Bot Framework Audio Cards:
 (https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.audiocard.html)
 
+It will simply concatenate the audio file onto the text provided in the response.
+
 ## Known Issues
 
 ### Multiple Responses
