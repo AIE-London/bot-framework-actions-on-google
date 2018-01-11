@@ -26,10 +26,12 @@ describe('MessageBuilder', () => {
       {
         text: "This is a test...",
         attachments: [{
-          contentType: "application/vnd.microsoft.card.audio",
-          content: {
-            media: {
-              url: "http://test.audio-source.com/audio.mp3"
+          data: {
+            contentType: "application/vnd.microsoft.card.audio",
+            content: {
+              media: [{
+                url: "http://test.audio-source.com/audio.mp3"
+              }]
             }
           }
         }]
@@ -40,10 +42,12 @@ describe('MessageBuilder', () => {
       {
         text: "Being concatenated.",
         attachments: [{
-          contentType: "application/vnd.microsoft.card.audio",
-          content: {
-            media: {
-              url: "http://test.audio-source.com/audio-2.mp3"
+          data: {
+            contentType: "application/vnd.microsoft.card.audio",
+            content: {
+              media: [{
+                url: "http://test.audio-source.com/audio-2.mp3"
+              }]
             }
           }
         }]

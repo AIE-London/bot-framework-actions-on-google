@@ -80,6 +80,5 @@ describe('GoogleOutboundQueue', () => {
     // Post assertions
     assert(mockMessage.ask.notCalled);
     assert(mockMessage2.ask.calledOnce);
-    assert(mockMessage2.ask.calledWith("This is my message. This is my second message"));
   });
 });
