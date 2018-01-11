@@ -81,6 +81,15 @@ app.listen(PORT, () => console.log(`ActionsOnGoogle demo listening on port ${POR
 
 Now that this is complete. Deploy the express server to the URL you configured in the actions.json file - and your bot should be accessible through Actions on Google/Google Assistant.
 
+## Features
+
+### Audio Cards
+
+This bridge supports Microsoft Bot Framework Audio Cards:
+(https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.audiocard.html)
+
+It will simply concatenate the audio file onto the text provided in the response.
+
 ## Known Issues
 
 ### Multiple Responses
