@@ -25,7 +25,7 @@ describe('GoogleOutboundQueue', () => {
     assert(outboundMessageQueue._queue instanceof Map);
     assert.equal(Array.from(outboundMessageQueue._queue.keys()).length, 0);
 
-    outboundMessageQueue.enqueueMessage("TEST_CONV_ID", mockMessage.text, mockMessage.ask);
+    outboundMessageQueue.enqueueMessage("TEST_CONV_ID", mockMessage, mockMessage.ask);
 
     // Post assertions
     assert.equal(Array.from(outboundMessageQueue._queue.keys()).length, 1);
@@ -47,7 +47,7 @@ describe('GoogleOutboundQueue', () => {
       ]
     });
 
-    outboundMessageQueue.enqueueMessage("TEST_CONV_ID", mockMessage2.text, mockMessage2.ask);
+    outboundMessageQueue.enqueueMessage("TEST_CONV_ID", mockMessage2, mockMessage2.ask);
 
     // Post assertions
     assert.equal(Array.from(outboundMessageQueue._queue.keys()).length, 1);
