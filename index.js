@@ -6,10 +6,10 @@ const bodyParser = require("body-parser");
 const fulfill = require("./lib/fulfilment");
 
 
-module.exports = (directlineSecret) => {
+module.exports = (directlineSecret, conversationTimeout) => {
   const router = express.Router();
   router.use(bodyParser.json());
-  router.use(fulfill(directlineSecret));
+  router.use(fulfill(directlineSecret, conversationTimeout));
 
   return router;
 };
