@@ -3,7 +3,7 @@ const assert = require('assert');
 
 const instance = new MessageBuilder();
 
-describe('MessageBuilder', () => {
+xdescribe('MessageBuilder', () => {
 
   it('should concat activities consisting of purely plain text', () => {
     const PLAIN_TEXT =  [

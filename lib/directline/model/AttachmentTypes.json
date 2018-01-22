@@ -3,7 +3,7 @@
   "AudioCard": "application/vnd.microsoft.card.audio",
   "HeroCard": "application/vnd.microsoft.card.hero",
   "ReceiptCard": "application/vnd.microsoft.com.card.receipt",
-  "SigninCard": "application/vnd.microsoft.com.card.signin",
+  "SigninCard": "application/vnd.microsoft.card.signin",
   "ThumbnailCard": "application/vnd.microsoft.card.thumbnail",
   "VideoCard": "application/vnd.microsoft.card.video"
 }
