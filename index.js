@@ -11,10 +11,10 @@ const onUserSignedInHandlerProvider = {
 };
 
 
-module.exports = (directlineSecret) => {
+module.exports = (directlineSecret, conversationTimeout) => {
   const router = express.Router();
   router.use(bodyParser.json());
-  router.use(fulfill(directlineSecret, onUserSignedInHandlerProvider));
+  router.use(fulfill(directlineSecret, onUserSignedInHandlerProvider, conversationTimeout));
 
   return {
     onUserSignedInHandlerProvider,
