@@ -5,11 +5,19 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const fulfill = require("./lib/fulfilment");
 
+const onUserSignedInHandlerProvider = {
+  registerHandler: (handler) => this.handler = handler,
+  getHandler: () => this.handler,
+};
+
 
 module.exports = (directlineSecret, conversationTimeout) => {
   const router = express.Router();
   router.use(bodyParser.json());
-  router.use(fulfill(directlineSecret, conversationTimeout));
+  router.use(fulfill(directlineSecret, onUserSignedInHandlerProvider, conversationTimeout));
 
-  return router;
+  return {
+    onUserSignedInHandlerProvider,
+    router
+  };
 };
