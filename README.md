@@ -56,7 +56,9 @@ Now that you've got an actions.json file - you need to update Google on the conf
 
 ### Using the module
 
-This module exposes a single function, which is an Express Router factory.
+#### Router
+
+This module exposes a single function, which returns an object which has an Express Router and a way to register a handler for when a user links their account.
 
 `actionsOnGoogleAdapter(<DIRECT_LINE_SECRET>);`
 
@@ -73,13 +75,31 @@ const actionsOnGoogleAdapter = require("bot-framework-actions-on-google");
 
 const app = express();
 
-app.use(actionsOnGoogleAdapter(<DIRECT_LINE_SECRET>));
+app.use(actionsOnGoogleAdapter(<DIRECT_LINE_SECRET>).router);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`ActionsOnGoogle demo listening on port ${PORT}!`));
 ```
 
 Now that this is complete. Deploy the express server to the URL you configured in the actions.json file - and your bot should be accessible through Actions on Google/Google Assistant.
+
+#### Sign In Handler
+
+Use the sign in handler to get any additional information about your user or anything else once you have an access token.
+
+The access token is available on the user object passed into the handler.
+
+```javascript
+actionsOnGoogleAdapter.onUserSignedInHandlerProvider.registerHandler((user) => {
+  // Get additional user details from your API once account is linked and access token is available
+  return fetch('https://your-api/user/' + user.userId, {
+      headers: {
+        Authorization: `Bearer ${user.accessToken}`
+      }
+    }).then(res => res.json())
+    .then(res => ({...res, ...user}))
+});
+```
 
 ## Features
 
@@ -89,6 +109,14 @@ This bridge supports Microsoft Bot Framework Audio Cards:
 (https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.audiocard.html)
 
 It will simply concatenate the audio file onto the text provided in the response.
+
+
+### Sign In Cards
+
+This bridge supports Microsoft Bot Framework Signin Cards:
+(https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.signincard.html)
+
+If a sign in card is sent back, other cards are ignored and the user will be asked to sign in.
 
 ## Known Issues
 
