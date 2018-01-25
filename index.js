@@ -11,10 +11,10 @@ const onUserSignedInHandlerProvider = {
 };
 
 
-module.exports = (directlineSecret, conversationTimeout) => {
+module.exports = (directlineSecret, conversationTimeout, shouldGetUsersNameFromGoogle) => {
   const router = express.Router();
   router.use(bodyParser.json());
-  router.use(fulfill(directlineSecret, onUserSignedInHandlerProvider, conversationTimeout));
+  router.use(fulfill(directlineSecret, onUserSignedInHandlerProvider, conversationTimeout, shouldGetUsersNameFromGoogle));
 
   return {
     onUserSignedInHandlerProvider,
