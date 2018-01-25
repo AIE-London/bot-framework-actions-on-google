@@ -1,7 +1,7 @@
 {
   "name": "bot-framework-actions-on-google",
   "description": "This NPM Module adds a Microsoft Bot Framework integration to Actions on Google - turning it into an input channel.",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "main": "index.js",
   "repository": "git@github.com:Capgemini-AIE/bot-framework-actions-on-google.git",
   "author": "Dan Cotton",
