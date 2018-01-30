@@ -2,7 +2,6 @@
 // Import NPM modules
 //=========================================================
 const express = require("express");
-const express = require("express");
 const actionsOnGoogleAdapter = require("../")(process.env.DIRECT_LINE_SECRET);
 
 const PORT = process.env.PORT || 3000;
