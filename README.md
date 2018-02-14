@@ -105,7 +105,7 @@ actionsOnGoogleAdapter.onUserSignedInHandlerProvider.registerHandler((user) => {
 
 ### Controlling the session (should we wait for another message from the user?)
 
-This bridge supports InputHint properties on Bot Framework activities, which determine if the bot should wait for further input from the user in a voice scenario. 
+This bridge supports InputHint properties on Bot Framework activities when using the SayAsync method (as opposed to PostAsync), which determine if the bot should wait for further input from the user in a voice scenario. 
 
 The bridge looks for an inputHint on the incoming activity from the bot, specifically looking for the 'expectingInput' hint, which will cause the bridge to leave the conversation open and allow the user to say something else without explicitly invoking the skill again.
 
