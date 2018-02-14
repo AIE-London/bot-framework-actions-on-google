@@ -103,6 +103,25 @@ actionsOnGoogleAdapter.onUserSignedInHandlerProvider.registerHandler((user) => {
 
 ## Features
 
+### Controlling the session (should we wait for another message from the user?)
+
+This bridge supports InputHint properties on Bot Framework activities, which determine if the bot should wait for further input from the user in a voice scenario. 
+
+The bridge looks for an inputHint on the incoming activity from the bot, specifically looking for the 'expectingInput' hint, which will cause the bridge to leave the conversation open and allow the user to say something else without explicitly invoking the skill again.
+
+Below is an example of using the above features in a C# bot. In this example we send a message from the bot to the bridge and also indicate that we are expecting an answer from the user.
+
+```cs
+var messageText = "Thanks! Can I help you with something else?";
+var messageOptions = new MessageOptions
+            {
+                InputHint = InputHints.ExpectingInput
+            };
+await context.SayAsync(messageText, speakText, options: messageOptions);
+```
+
+By default, if the inputHint for 'expectingInput' is not found, the session will close (i.e. the app.tell method is used when returning a response via the Google Actions SDK), whereas if it is found then the app.ask method is used. If you wish to leave the session open by default, there an environment setting 'DEFAULT_LEAVE_SESSION_OPEN' which, if set to "true", will leave the session open and accept more input by default without needing to specify it explicitly using the inputHint.
+
 ### Audio Cards
 
 This bridge supports Microsoft Bot Framework Audio Cards:
