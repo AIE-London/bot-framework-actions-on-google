@@ -103,6 +103,25 @@ actionsOnGoogleAdapter.onUserSignedInHandlerProvider.registerHandler((user) => {
 
 ## Features
 
+### Controlling the session (should we wait for another message from the user?)
+
+By default this bridge will leave the session open after returning a response to Google and will expect further input from the user, which will allow them to continue their conversation with your action. If you wish to end the session by default following each message, there an environment setting 'DEFAULT_LEAVE_SESSION_OPEN' which you can set to "false" to achieve this.
+
+This bridge also supports InputHint properties on Bot Framework activities when using the SayAsync method (as opposed to PostAsync), which determine if the bot should wait for further input from the user in a voice scenario. 
+
+The bridge looks for an inputHint on the incoming activity from the bot, specifically looking for either the 'ExpectingInput' hint, which will cause the bridge to leave the conversation open, or 'IgnoringInput', which will end the conversation.  So, for example, if you have sessions being left open by default you could use the 'IgnoringInput' InputHint to end the session. Conversely, if you end the session by default, you can send the 'ExpectingInput' InputHint on your bot activity to indicate that we should wait for the user to say something else.
+
+Below is an example of using the above InputHint features in a C# bot. In this example we send a message from the bot to the bridge and also indicate that we are expecting a further message from the user.
+
+```cs
+var messageText = "Thanks! Can I help you with something else?";
+var messageOptions = new MessageOptions
+            {
+                InputHint = InputHints.ExpectingInput
+            };
+await context.SayAsync(messageText, speakText, options: messageOptions);
+```
+
 ### Audio Cards
 
 This bridge supports Microsoft Bot Framework Audio Cards:
