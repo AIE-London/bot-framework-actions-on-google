@@ -137,6 +137,15 @@ This bridge supports Microsoft Bot Framework Signin Cards:
 
 If a sign in card is sent back, other cards are ignored and the user will be asked to sign in.
 
+
+### Channel data
+
+This bridge will pass some channel data, within the ChannelData property on the incoming Activity to your bot.  The following data is sent;
+
+* Google conversation ID
+* Available surfaces for the user. e.g. audio / screen
+* Device location (if available)
+
 ## Known Issues
 
 ### Multiple Responses
